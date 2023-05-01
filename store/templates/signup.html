@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+<div class="container" >
+  <div class="p-4 m-4">
+    <div class="col-lg-5 mx-auto border rounded pt-4">
+      <h3 class="alert alert-light border rounded">Create An Account</h3>
+      <form action="/signup" method="POST"> 
+        {% csrf_token %}
+        
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+        {{error}}
+        </div>
+        {% endif %}
+        <div class="form-group">
+      <label for="">First Name</label>
+      <input type="text" name="firstname" id="" value="{{values.firstname}}"class="form-control form-control-sm">
+    </div>
+    <div class="form-group">
+      <label for="">Last Name</label>
+      <input type="text" name="lastname" id="" value="{{values.lastname}}" class="form-control form-control-sm">
+    </div>
+    <div class="form-group">
+      <label for="">Phone</label>
+      <input type="text" name="phone" id="" value="{{values.phone}}" class="form-control form-control-sm" placeholder="1212121">
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <input required type="email" name="email" id="" value="{{values.email}}" class="form-control form-control-sm" placeholder="example@gmail.com">
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" name="password" id="" value="{{values.password}}" class="form-control form-control-sm" placeholder="******">
+    </div>
+    <div class="form-group">
+<!--      <label for="">Re Enter Password</label>-->
+<!--      <input type="password" name="ReEnterpassword" id="" class="form-control form-control-sm" placeholder="******">-->
+    </div>
+  <div class="forgroup">
+    <button class="btn btn-info btn-sm"type="submit">Create An Account</button>
+
+
+  </div>  
+  </form>
+    
+</div>
+</div>
+</div>
+{% endblock %}
